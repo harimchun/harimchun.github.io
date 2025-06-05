@@ -1,320 +1,497 @@
-<!DOCTYPE HTML>
-<!--
-	Solid State by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Harim Chun</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harim Chun</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">CHR</div>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#research" class="nav-link">Research</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#publications" class="nav-link">Publications</a></li>
+        <li><a href="#awards" class="nav-link">Awards</a></li>
+        <li><a href="#teaching" class="nav-link">Teaching</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle">🌙</button>
+    </div>
+  </nav>
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+  <!-- Hero Section -->
+<section id="home" class="hero" style="position: relative; overflow: hidden;">
+  <!-- Canvas for particle/network background -->
+  <canvas
+    id="hero-canvas"
+    style="position:absolute; top:0; left:0; width:100vw; height:100%; z-index:0;"
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">Harim Chun</a></h1>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+  ></canvas>
 
-				<!-- Menu -->
-					<nav id="menu">
-						<div class="inner">
-							<h2>Menu</h2>
-							<ul class="links">
-								<li><a href="index.html">Home</a></li>
-								<!-- <li><a href="posts.html">Posts</a></li> -->
-								<!--    <li><a href="elements.html">Elements</a></li>   -->
-							</ul>
-							<a href="#" class="close">Close</a>
-						</div>
-					</nav>
+  <!-- Hero content: flex container으로 변경 -->
+  <div class="hero-content" style="position:relative; z-index:1;">
+    <!-- 텍스트 영역 -->
+    <div class="hero-text">
+      <h1 class="hero-title">
+        <span class="typing-text" data-text="Hello, I'm Harim Chun"></span>
+      </h1>
+      <h2 class="hero-subtitle">
+        <span
+          class="typing-text"
+          data-text="PhD Student in Medical Science @ The Catholic University of Korea"
+        ></span>
+      </h2>
+      <p class="hero-description">
+        🧬 Unraveling Cancer Biology through Single-Cell & Spatial Transcriptomics |
+        Focused on Biological Insights from Multi-Omics Data
+      </p>
+      <div class="hero-contact">
+        <div class="contact-item-inline">
+          <span class="contact-emoji">📧</span>
+          <a href="mailto:bgr1663@korea.ac.kr" target="_blank">E-mail</a>
+        </div>
+        <div class="contact-item-inline">
+          <span class="contact-emoji">🐙</span>
+          <a href="https://github.com/harimchun" target="_blank">github.com/harimchun</a>
+        </div>
+        <div class="contact-item-inline">
+          <span class="contact-emoji">💼</span>
+          <a href="https://www.linkedin.com/in/harim-chun-45015a271/" target="_blank"
+            >LinkedIn</a
+          >
+        </div>
+        <div class="contact-item-inline">
+          <span class="contact-emoji">📍</span><span>Seoul, Korea</span>
+        </div>
+      </div>
+      <div class="hero-buttons">
+        <a href="assets/cv/CV.pdf" class="btn btn--primary"
+          >Download CV</a
+        >
+      </div>
+    </div>
 
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2>Harim Chun</h2>
-							<p>Graduate Student<br>Korea University College of Medicine<br><br><a href="assets/cv/20240619_Harim_Chun_HR.pdf" class="button primary">CV</a></p>
+    <!-- 이미지(프로필) 영역 추가 -->
+    <div class="hero-image">
+      <!-- 실제 이미지 경로를 자신의 사진 파일로 바꿔주세요 -->
+      <img
+        src="assets/images/harimchun.png"
+        alt="Harim Chun"
+        class="profile-photo"
+      />
+    </div>
+  </div>
+  </section>
 
-						</div>
-					</section>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="about-content">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">Published Papers</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">Conference Presentations</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="4">0</div>
+            <div class="stat-label">Teaching Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="4">0</div>
+            <div class="stat-label">Awards</div>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="reveal-text">
+            I am a Ph.D. student in Biomedical Sciences at The Catholic University of Korea, specializing in <b>cancer genomics</b>, <b>single-cell genomics</b>, and <b>bioinformatics</b>. My research focuses on understanding the genetic underpinnings of cancer and developing computational tools for complex biological data analysis.</p>
+          <p class="reveal-text">
+            With a strong background in multi-omics data integration and machine learning approaches, I aim to contribute to precision oncology and personalized therapeutic strategies.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-				<!-- Wrapper -->
-					<section id="wrapper">
+  <!-- Education Section -->
+  <section id="education" class="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="timeline">
+        <div class="timeline-item" data-year="2025 – Present">
+          <div class="timeline-content">
+            <div class="edu-logo-wrapper">
+              <img src="assets/images/catholic-univ-logo.png" alt="Catholic University Logo" class="edu-logo" />
+            </div>
+            <div class="edu-details">
+              <h3>Ph.D. in Biomedical Sciences</h3>
+              <h4>The Catholic University of Korea College of Medicine</h4>
+              <p class="edu-location">Seoul, Korea</p>
+              <span class="timeline-period">Mar 2025 – Present</span>
+              <p class="edu-extra">Ph.D. candidate</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item" data-year="2021 – 2024">
+          <div class="timeline-content">
+            <div class="edu-logo-wrapper">
+              <img src="assets/images/korea-univ-logo.png" alt="Korea University Logo" class="edu-logo" />
+            </div>
+            <div class="edu-details">
+              <h3>M.S. in Biomedical Sciences</h3>
+              <h4>Korea University College of Medicine</h4>
+              <p class="edu-location">Seoul, Korea</p>
+              <span class="timeline-period">Mar 2021 – Aug 2024</span>
+              <p class="edu-extra">Thesis: Identification of molecular biomarkers of response to immune checkpoint inhibitors</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item" data-year="2019 – 2019">
+          <div class="timeline-content">
+            <div class="edu-logo-wrapper">
+              <img src="assets/images/mississippi-logo.png" alt="University of Mississippi Logo" class="edu-logo" />
+            </div>
+            <div class="edu-details">
+              <h3>Exchange Student, Biology</h3>
+              <h4>University of Mississippi</h4>
+              <p class="edu-location">University, Mississippi, USA</p>
+              <span class="timeline-period">Jan 2019 – May 2019</span>
+              <p class="edu-extra">Exchange Student Program</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item" data-year="2015 – 2021">
+          <div class="timeline-content">
+            <div class="edu-logo-wrapper">
+              <img src="assets/images/soongsil-logo.png" alt="Soongsil University Logo" class="edu-logo" />
+            </div>
+            <div class="edu-details">
+              <h3>B.S. in School of Systems Biomedical Science (Bioengineering and Bioinformatics)</h3>
+              <h4>Soongsil University</h4>
+              <p class="edu-location">Seoul, Korea</p>
+              <p class="edu-location">Interdisciplinary Major in Big Data Computing</p>
+              <span class="timeline-period">Mar 2015 – Feb 2021</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-						<!-- One -->
-							<section id="one" class="wrapper spotlight style1">
-								<div class="inner">
-									<!--<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>-->
-									<div class="content">
-										<center>
-										<h1 class="major">Research Interests</h1>
-										</center>
-										<p style="text-align: center;">Cancer Genomics</p>
-										<p style="text-align: center;">Single-cell Genomics</p>
-										<p style="text-align: center;">Multi-omics</p>
-										<p style="text-align: center;">Bioinformatics</p>
-										<!--<a href="#" class="special">Learn more</a>-->
-									</div>
-								</div>
-							</section>
+  <!-- Research Areas Section -->
+  <section id="research" class="research">
+    <div class="container">
+      <h2 class="section-title">Research Areas</h2>
+      <div class="research-grid">
+        <div class="research-card">
+          <div class="research-icon">🧬</div>
+          <h3>Cancer Genomics</h3>
+          <p>Investigating genetic mechanisms driving oncogenesis and immunotherapy response.</p>
+        </div>
+        <div class="research-card">
+          <div class="research-icon">🔬</div>
+          <h3>Single-Cell Genomics</h3>
+          <p>Uncovering cellular heterogeneity via scRNA-seq to identify rare populations.</p>
+        </div>
+        <div class="research-card">
+          <div class="research-icon">📊</div>
+          <h3>Multi-Omics</h3>
+          <p>Integrating genomics, transcriptomics, and epigenomics for system-level insights.</p>
+        </div>
+        <div class="research-card">
+          <div class="research-icon">💻</div>
+          <h3>Bioinformatics</h3>
+          <p>Developing pipelines for NGS data analysis, variant calling, and network inference.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-						<!-- Two -->
-							<section id="two" class="wrapper alt spotlight style2">
-								<div class="inner">
-									<a href="#" class="image"><img src="images/school_v2.png" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Education</h2>
-										<h1>Korea University College of Medicine</h1>
-										<p>Seoul, Korea<br>Mar. 2021 - Aug. 2024 (Expected) <br>Master of Science in Biomedical Sciences</p>
-										<h1>University of Mississippi</h1>
-										<p>University, Mississippi, USA<br>Jan. 2019 - May 2019<br>Exchange Student, Biology</p>
-										<h1>Soongsil University</h1>
-										<p>Seoul, Korea<br>Mar. 2015 - Feb. 2021<br>Bachelor of Science in School of Systems Biomedical Science (Bioengineering and Bioinformatics)<br>Interdisciplinary Major in Big Data Computing</p>
-									</div>
-								</div>
-							</section>
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="tool-list">
+        BWA-MEM, GATK, VEP, SnpEff, ANNOVAR, Hisat, Salmon, DESeq2, Limma, CIBERSORTx, Seurat, Harmony, Monocle3, MAST, miR-loR, WGCNA, SCENIC, Cytoscape, GSEA, IPA
+        <br>
+      </div>
+      <p class="tool-with">with</p>
+      <div class="logo-container">
+        <img src="assets/images/python-logo.png" alt="Python" class="skill-logo" />
+        <img src="assets/images/r-logo.png" alt="R" class="skill-logo" />
+        <img src="assets/images/linux-logo.png" alt="Linux" class="skill-logo" />
+        <img src="assets/images/aws-logo.png" alt="AWS" class="skill-logo" />
+      </div>
+    </div>
+  </section>
 
-						<!-- Three -->
-							<section id="three" class="wrapper spotlight style3">
-								<div class="inner">
-									<a href="images/IMG_1388.jpg" class="image"><img src="images/IMG_1388.jpg" alt="" /></a>
-									<div class="content">
-										<h2 class="major">Personal Statement</h2>
-										<p style="text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;I am a graduate student at Korea University College of Medicine, Department of Biomedical Sciences. My research interests lie in unraveling the mechanisms of cancer and other diseases through the analysis of omics data, including Whole Exome Sequencing (WES), bulk RNA sequencing, and single-cell RNA sequencing.<br>
-										&nbsp;&nbsp;&nbsp;&nbsp;Utilizing various methodologies and leveraging machine learning techniques, my long-term goal is to become an expert in bioinformatics with a focus on disease-specific and cancer-specific causal gene discovery. Through the graduate program, I aim to conduct cutting-edge research to achieve this goal.
+  <!-- Experience Section -->
+  <section id="experience" class="experience">
+    <div class="container">
+      <h2 class="section-title">Research Experience</h2>
+      <div class="experience-timeline">
+        <div class="experience-item">
+          <div class="experience-header">
+            <h3>PathFinderLab</h3>
+            <span class="experience-period">Sep 2024 - Present</span>
+          </div>
+          <div class="experience-content">
+            <h4>The Catholic University of Korea &amp; Korea University Anam Hospital</h4>
+            <p><strong>Advisor:</strong> Sung Hak Lee, M.D., Ph.D.</p>
+            <i><p>Graduate Student (Mar. 2025 - )</p></i>
+            <i><p>Research Associate (Sep. 2024 – Feb. 2025)</p></i>
+          </div>
+        </div>
+        <div class="experience-item">
+          <div class="experience-header">
+            <h3>Choi Lab (Human Genetics & Genomics)</h3>
+            <span class="experience-period">Jul 2020 – Aug 2024</span>
+          </div>
+          <div class="experience-content">
+            <h4>Korea University</h4>
+            <p><strong>Advisor:</strong> Jungmin Choi, Ph.D.</p>
+            <i><p>Graduate Student (Mar. 2021 - Aug. 2024)</p></i>
+            <i><p>Undergraduate Research Intern (Jul. 2020 - Feb. 2021)</p></i>
+            <div class="project-list">
+              <div class="project-item">
+                <h5>Liver Cancer Biomarker Discovery</h5>
+                <p>Identified pseudogene-derived lncRNA biomarkers in liver cancer using TCGA-LIHC dataset (369 tumor, 49 normal tissues). Discovered 465 differentially expressed pseudogenes and identified PLEKHA8P1 as a key biomarker.</p>
+                <p class="collaboration">Collaboration: Prof. Lark Kyun Kim (Yonsei University College of Medicine)</p>
+              </div>
+              <div class="project-item">
+                <h5>Metachronous Gastric Cancer</h5>
+                <p>Analyzed RNA-seq data from 46 patients, identified 13 DEGs including <i>KDF1</i> and <i>CDK1</i> as significant biomarkers for metachronous gastric cancer progression.</p>
+                <p class="collaboration">Collaboration: Prof. Soo-jeong Cho (Seoul National University College of Medicine)</p>
+              </div>
+              <div class="project-item">
+                <h5>Hematopoietic Stem Cell Niche</h5>
+                <p>Analyzed transcriptional heterogeneity in HPSC using scRNA-seq data from <i>Cxcr4</i> cKO and control mice. Identified key regulators of HSC homeostasis.</p>
+                <p class="collaboration">Collaboration: Prof. Joao Pereira (Yale University)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-									</p>
-									</div>
+  <!-- Publications Section -->
+  <section id="publications" class="publications">
+    <div class="container">
+      <h2 class="section-title">Publications</h2>
+      <div class="publication-list">
+        <div class="publication-item">
+          <h4>Predictive biomarkers for metachronous gastric cancer development after endoscopic resection of early gastric cancer</h4>
+          <p class="authors">Kim B*, <b><u>Chun H*</u></b>, Lee J, Park M, Kwak Y, Kim JM, Kim SG, Ryu JK, Choi J^, Cho SJ^</p>
+          <p class="journal"><i>Cancer Medicine. 2024</i></p>
+          <p class="journal">* Co-first Author</p>
+        </div>
+        <div class="publication-item">
+          <h4>Competition between hematopoietic stem and progenitor cells controls hematopoietic stem cell compartment size</h4>
+          <p class="authors">Miao R, <b><u>Chun H</u></b>, Gomes A.C., Choi J, Pereira J</p>
+          <p class="journal">Nature Communications. 2022</p>
+        </div>
+        <div class="publication-item">
+          <h4>PLEKHA8P1 Promotes Tumor Progression and Indicates Poor Prognosis of Liver Cancer</h4>
+          <p class="authors">Lee J*, Hwang JH*, <b><u>Chun H*</u></b>, Woo W, Oh S, Choi J^, Kim LK^</p>
+          <p class="journal">Int. J. Mol. Sci. 2021, 22, 7614</p>
+          <p class="journal">* Co-first Author</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-								</div>
-							</section>
+  <!-- Awards Section -->
+  <section id="awards" class="awards">
+    <div class="container">
+      <h2 class="section-title">Awards & Honors</h2>
+      <div class="award-list">
+        <div class="award-item">
+          <h4>Excellence Poster Award</h4>
+          <p>The 20th KOGO Winter Symposium 2024</p>
+        </div>
+        <div class="award-item">
+          <h4>Brain Korea 21 (BK21) Scholarship</h4>
+          <p>Korea Research Foundation 2021–2022</p>
+        </div>
+        <div class="award-item">
+          <h4>CoRE Tutoring Best Tutor Award</h4>
+          <p>Soongsil University 2020</p>
+        </div>
+        <div class="award-item">
+          <h4>Semester Honor Scholarship</h4>
+          <p>Soongsil University 2016, 2020</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-						<!-- Four -->
-						<section id="four" class="wrapper alt spotlight style4">
-								<div class="inner">
-									<div class="content">
-										<h2 class="major">Relevant Experience</h2>
-										<h1>Choi Lab (Human Genetics and Genomics Lab), Korea University College of Medicine</h1>
-										<p><i>Undergraduate Research Intern (Advisor : Jungmin Choi, Ph.D)</i>, Jul. 2020 - Feb. 2021
-											<br><i>Graduate Student (Advisor : Jungmin Choi, Ph.D)</i>, Mar. 2021 - Aug. 2024 (Expected)</br>
-											<ul>
-												<li><b>Cacner Genomics</b>
-													<ul>
-														<li>Identifying the pseudogene-derived lncRNA biomarker responsible for the tumor progression and poor prognosis in liver cancer with bulk RNA-seq data</li>
-														<li>Identification of biomarkers responsible for the metachronous gastric cancer progression with WES and bulk RNA-seq data</li>
-													</ul>
-												</li>
-												
-												<li><b>Single-cell Genomics</b>
-													<ul>
-														<li>Transcriptional heterogeneity in hematopoietic stem cell niche with scRNA-seq data</li>
-													</ul>
-												</li>
+  <!-- Teaching Section -->
+  <section id="teaching" class="teaching">
+    <div class="container">
+      <h2 class="section-title">Teaching Experience</h2>
+      <div class="teaching-list">
+        <div class="teaching-item">
+          <div class="teaching-header">
+            <h4>KSBI-BIML 2024</h4>
+            <span class="teaching-date">Feb 2024</span>
+          </div>
+          <p class="teaching-course">Single-Cell Multiomics</p>
+          <p class="teaching-org">Korea Society for Bioinformatics</p>
+          <p class="teaching-location">Seoul, Korea</p>
+        </div>
+        <div class="teaching-item">
+          <div class="teaching-header">
+            <h4>KSBI-BIML 2023</h4>
+            <span class="teaching-date">Feb 2023</span>
+          </div>
+          <p class="teaching-course">Spatial Transcriptome with R</p>
+          <p class="teaching-org">Korea Society for Bioinformatics</p>
+          <p class="teaching-location">Seoul, Korea</p>
+        </div>
+        <div class="teaching-item">
+          <div class="teaching-header">
+            <h4>KOGO Winter Workshop</h4>
+            <span class="teaching-date">Feb 2023</span>
+          </div>
+          <p class="teaching-course">Spatial Transcriptome with R</p>
+          <p class="teaching-org">Korea Genome Organization</p>
+          <p class="teaching-location">Seoul, Korea</p>
+        </div>
+        <div class="teaching-item">
+          <div class="teaching-header">
+            <h4>Digital Healthcare Professionals Training</h4>
+            <span class="teaching-date">Oct 2022</span>
+          </div>
+          <p class="teaching-course">NGS Data Analysis Pipeline (GATK Workflow)</p>
+          <p class="teaching-org">Korea University, INNOPOLIS</p>
+          <p class="teaching-location">Seoul, Korea</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-												<li><b>Multi-Omics</b>
-													<ul>
-														<li>Discovery of biomarkers affecting the response to the immune check inhibitors by the network analysis using scRNA-seq and scATAC-seq data</li>
-													</ul>
-												</li>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-content">
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" name="name" class="form-control" required />
+            <div class="form-feedback"></div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required />
+            <div class="form-feedback"></div>
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+            <div class="form-feedback"></div>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-												<li><b>Bioinformatics</b>
-													<ul>
-														<li>Altered post-transcriptional modification at 3’-end in Yeast with bulk RNA-seq data</li>
-														<li>Constructing pipeline for the alignment and variant calling of Whole genome sequencing data for the drug resistance inference and the construction of the phylogenetic tree</li>
-														<li>Clustering and Representing GO BP Terms: An Unbiased Approach – Enrichmate</li>
-													</ul>
-												</li>
+  <!-- Inline Script: Particle/Network Animation Only -->
+  <script>
+    (function() {
+      const canvas = document.getElementById('hero-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width, height, dpr;
 
-											</ul>
-										</p>
-										<h1>Post-Genome Informatics Lab, Soongsil University</h1>
-										<p><i>Undergraduate Research Intern (Advisor : Sangsoo Kim, Ph.D)</i>, Aug. 2019 - Jul. 2020</p>
-										<h1>Insilicogen, INC., Yongin, Korea</h1>
-										<p><i>Internship</i>, Jul. 2019 - Aug. 2019
-											<ul>
-												<li>A personalized fruit or vegetable drinks service referring to the personal genomic data (Prototype, via Neo4J)</li>
-												<li>Genomic, Transcriptomic data analysis utilizing QIAGEN CLC genomic workbench</li>
-												</ul>
-											<!-- &nbsp;&nbsp;&nbsp;<a href="assets/insilicogen/insilicogen.pdf" ><img src="images/insilicogen.png" width="500" alt="" /></a><p>&nbsp;&nbsp;&nbsp;Click the Image to Open a powerpoint about the prototype project.</p> -->
-										
-										</p>
-									</div>
+      function resizeCanvas() {
+        dpr = window.devicePixelRatio || 1;
+        width = canvas.clientWidth;
+        height = canvas.clientHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
 
-								</div>
-							</section>
+      // Increase particle count for a denser network
+      const particleCount = 150;
+      const particles = [];
 
-						<!-- Five -->
-						<section id="Five" class="wrapper spotlight style5">
-								<div class="inner">
-									<div class="content">
-										<h2 class="major">Teaching</h2>
-										<h1>KSBI-BIML 2024 @ Korea Society for Bioinformatics</h1>
-										<p>Feb, 2024</p>
-										<p><li>Single cell Multiomics</li><br>
+      // Initialize particles with random positions and velocities
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          radius: 1 + Math.random() * 2
+        });
+      }
 
-										<h1>KSBI-BIML 2023 @ Korea Society for Bioinformatics</h1>
-										<p>Feb, 2023</p>
-										<p><li>Spatial Transcriptome with R programming</li><br>
+      function drawFrame() {
+        ctx.clearRect(0, 0, width, height);
 
-										<h1>The 19th KOGO Winter Workshop @ Korea Genome Organization</h1>
-										<p>Feb, 2023</p>
-										<p><li>Spatial Transcriptome with R programming</li><br>
+        // Update particle positions and bounce off edges
+        for (const p of particles) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+        }
 
-										<h1>Training of Digital Healthcare Professionals @ Korea University, INNOPOLIS</h1>
-										<p>Oct, 2022</p>
-										<p><li>NGS Data Analysis Pipeline – GATK best practice workflow</li><br>
+        // Draw faint connections between close particles (network effect)
+        ctx.strokeStyle = 'rgba(0,206,209,0.08)';
+        ctx.lineWidth = 1;
+        for (let i = 0; i < particleCount; i++) {
+          for (let j = i + 1; j < particleCount; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.hypot(dx, dy);
+            if (dist < 80) {
+              ctx.beginPath();
+              ctx.globalAlpha = 1 - dist / 80;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+              ctx.closePath();
+            }
+          }
+        }
 
-										<h1>CoRE (Collaboration Real Energy) Tutoring @ Soongsil University</h1>
-										<p>Sep. 2019 - Dec. 2019, Subject: Distributed Big Data Computing</p>
-										<p><li>Taught Hadoop File System and PySpark to students for the whole semester</li><br>
-										<!--&nbsp;&nbsp;&nbsp;<img src="images/hadoop.png" width="200"  alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/spakr.png" width="200"  alt="" />-->
+        // Draw each particle as a small semi-transparent circle
+        for (const p of particles) {
+          ctx.beginPath();
+          ctx.globalAlpha = 0.7;
+          ctx.fillStyle = 'rgba(0,206,209,0.3)';
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.closePath();
+        }
+        ctx.globalAlpha = 1.0;
 
-									</div>
-								</div>
-							</section>
+        requestAnimationFrame(drawFrame);
+      }
 
+      drawFrame();
+    })();
+  </script>
 
-						<!-- Six -->
-						<section id="Six" class="wrapper alt spotlight style6">
-								<div class="inner">
-									<div class="content">
-										<h2 class="major">Awards And Honors</h2>
-
-										<h1>Excellence Poster Award (2024)</h1>
-										<p>The 20th KOGO Winter Symposium</p>
-										<p>Identification of molecular biomarkers for response to immune checkpoint inhibitors</p>
-
-										<h1>Semester Honor Scholarship (2020)</h1>
-										<p>Soongsil University</p>
-
-										<h1>CoRE Tutoring Best Tutor Award (2020)</h1>
-										<p><a href="https://citl.ssu.ac.kr/ko/learning/tutoring/intro">Center for Innovative Teaching and Learning, Soongsil University</a></p>
-
-										<h1>Semester Honor Scholarship (2016)</h1>
-										<p>Soongsil University</p>
-										
-									</div>
-								</div>
-							</section>
-
-						<!-- Seven / Publications -->
-						<section id="Seven" class="wrapper spotlight style7">
-							<div class="inner">
-								<div class="content">
-									<h2 class="major">Publications</h2>
-									<p style="text-align: left;">Ctk1 regulates replicative lifespan by controlling the expression of ribosomal proteins. <i>in preparation</i></p>
-									<p style="text-align: left;">Development and Validation of Predictive Markers for Metachronous Gastric Cancer Development in Patients with Early Gastric Cancer Treated with Endoscopic Submucosal Dissection. <i>in preparation</i></p>
-									<p style="text-align: left;"><a href="https://www.nature.com/articles/s41467-022-32228-w">Miao R, <b><u>Chun H</u></b>,Gomes A. C, Choi J, & Pereira J.Competition between hematopoietic stem and progenitor cells controls hematopoietic stem cell compartment size. <i>Nature Communications. 2022.</i></a></p>
-									<p style="text-align: left;"><a href="https://www.mdpi.com/1422-0067/22/14/7614">Lee J*, Hwang JH*, <b><u>Chun H*</u></b>, Woo W, Oh S, Choi J^, Kim LK^. PLEKHA8P1 Promotes Tumor Progression and Indicates Poor Prognosis of Liver Cancer. <i>Int. J. Mol. Sci. 2021, 22, 7614</i></a></p>
-									<br><p style="text-align: left;">* : co-first Author</br></p>
-								</div>
-								
-							</div>
-						</section>	
-
-						<!-- Eight 
-						<section id="Eight" class="wrapper spotlight alt style8">
-								<div class="inner">
-									<div class="content">
-										<h2 class="major">My Own Projects (During B.S)</h2>
-										<h1>Identifying expression quantitative trait loci for pro-inflammatory response triggered by TIFA with genome- wide association study</h1>
-										<p>During the course (Practice of Biostatistics, 2019)<br>@Soongsil University</p>
-										<a href="assets/projects/biostatistics.pdf"><img style="text-align: left;" src="images/study.png" width="700"  alt="" /><p>Click the Image to Open a pdf file.</p></a>
-										<p></p><img style="text-align: left;" src="images/TIFA.jpg" width="700"  alt="" /></p>
-										<p style="text-align: left;">This study was conducted to identify eQTLs with 373 Europeans’ expression data of the genes encoding TIFA in Lymphoblastoid cell lines which were examined by the Geuvadis RNA-sequencing project. Overall analysis was operated with PLINK ver. 1.90. And <a href="https://github.com/harimchun/getting_gene_name">Python programming</a> and R were also used for the study.<br><br><br><br></p>
-
-										<h1>Drug repositioning and virtual screening against the calcium-dependent protein kinase1 (CDPK1) with SMINA</h1>
-										<p>During the course (Computational Molecular Biology and Lab., 2019)<br>@Soongsil University</p>
-										<a href="https://drive.google.com/open?id=10h7INYp4_O-DSkiOQCt7zbjOAzw6ytYe"><img style="text-align: left;" src="images/computational_mol_bio.png" width="800"  alt="" /><p>Click the Image to Open a .ipynb</p></a>
-										<p style="text-align: left;">This project was conducted to find stronger drug by molecular dynamic(MD) simulation. In order to find a feasible drug, I developed a customized scoring function and found candidate ligands to be docked with a receptor using <a href="http://dude.docking.org">DUDE</a>, <a href="https://pubchem.ncbi.nlm.nih.gov">pubchem</a>, and <a href="https://zinc.docking.org/tranches/home/">ZINC</a> database.<br><br><br><br></p>
-
-										<h1>In silico analysis of gene expression and binding affinity to predict the susceptibility to Covid-19 in Pan-Cancer patients</h1>
-										<p>During the course (Undergraduate Thesis, 2020)<br>@Soongsil University</p>
-										<a href="assets/projects/sars_cov2.pdf"><img style="text-align: left;" src="images/sars_cov2.jpg" width="800"  alt="" /><p>Click the Image to Open a pdf file.</p></a>
-										<p></p><img style="text-align: left;" src="images/sars_cov2_oa.png" width="700"  alt="" /></p>
-										<p style="text-align: left;">This thesis is mainly about predicting the susceptibility to Covid-19 in pan-cancer patients. With single nucleotide variation information of ACE2 gene, biding affinity between human ACE2 and SARS-CoV-2's spike protein. </p>
-
-										<h1>Rosalind</h1>
-										<p>During the Undergraduate</p>
-										<a href="https://github.com/harimchun/rosalind"><img style="text-align: left;" src="images/rosalindlogo.png" width="500"  alt="" /><p>Click the Image to Open my github repository.</p></a>
-										<p style="text-align: left;">To improve the skill for using the python language, I solved the problems on the <a href="http://rosalind.info/problems/locations/">rosalind</a>. By solving the various problems, I was able to learn various applications of the python for a genomics or other computational biology related studies.<br><a href="http://rosalind.info/statistics/countries/kr/">(Rank: 89/330, South Korea)</a></p>
-									</div>
-								</div>
-							</section>
-						-->
-
-						<!-- IDK
-							<section id="four" class="wrapper alt style1">
-								<div class="inner">
-									<h2 class="major">Vitae phasellus</h2>
-									<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
-									<section class="features">
-										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-											<h3 class="major">Sed feugiat lorem</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-											<a href="#" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3 class="major">Nisl placerat</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-											<a href="#" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-											<h3 class="major">Ante fermentum</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-											<a href="#" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-											<h3 class="major">Fusce consequat</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-											<a href="#" class="special">Learn more</a>
-										</article>
-									</section>
-									<ul class="actions">
-										<li><a href="#" class="button">Browse All</a></li>
-									</ul>
-								</div>
-							</section>
-
-					</section>-->
-
-				<!-- Footer -->
-					<section id="footer">
-						<div class="inner">
-							<h2 class="major">Contact</h2>
-							</form>
-							<ul>
-								<a href="mailto: bgr1663@gmail.com" class="icon solid fa-envelope">&nbsp;&nbsp;&nbsp;&nbsp;bgr1663 [at] korea [dot] ac [dot] kr<br><br></a>
-								<a href="https://github.com/harimchun" class="icon brands fa-github">&nbsp;&nbsp;&nbsp;&nbsp;github.com/harimchun</a>
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+  <script src="app.js"></script>
+</body>
 </html>
