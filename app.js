@@ -1,9 +1,22 @@
-// Minimal interactions: particle helix + scroll reveal + active nav highlight.
+// Minimal interactions: theme toggle + particle helix + scroll reveal + active nav.
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   initHelix();
   initReveal();
   initNavActive();
 });
+
+// The <head> inline script already applied the saved/system theme before paint;
+// this wires the toggle button and persists explicit choices.
+function initTheme() {
+  const toggle = document.getElementById('theme-toggle');
+  if (!toggle) return;
+  toggle.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+  });
+}
 
 // Decorative DNA helix: two particle strands with depth-modulated dot size,
 // drawn over one animation period (300px) repeated to y=1200 for a seamless loop.
