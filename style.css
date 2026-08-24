@@ -1,5 +1,6 @@
 /* ============ Design tokens ============ */
 :root {
+  color-scheme: light;
   --bg: #f7faf8;
   --surface: #ffffff;
   --ink: #131f18;
@@ -7,9 +8,15 @@
   --green-900: #1e4030;
   --green-800: #275640;
   --mint: #ddeee3;
+  --mint-ink: #1e4030;
+  --mint-hover: #cfe6d8;
   --mint-soft: #eaf4ee;
   --border: #e2eae5;
-  --art: #dfeae3;
+  --nav-bg: rgba(247, 250, 248, 0.92);
+  --dot-a: #a9cdb9;
+  --dot-b: #bcd8c6;
+  --card-hover: #c8dbd0;
+  --card-shadow: rgba(30, 64, 48, 0.07);
 
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-serif: 'Instrument Serif', Georgia, serif;
@@ -17,6 +24,48 @@
 
   --radius: 10px;
   --maxw: 1080px;
+}
+
+/* Dark theme tokens (explicit choice via toggle, or system preference before JS runs) */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f1713;
+  --surface: #17221c;
+  --ink: #e6efe9;
+  --muted: #9cb2a6;
+  --green-900: #35604a;
+  --green-800: #8fc7a9;
+  --mint: #23392d;
+  --mint-ink: #d9ece1;
+  --mint-hover: #2c4739;
+  --mint-soft: #131f18;
+  --border: #263529;
+  --nav-bg: rgba(15, 23, 19, 0.9);
+  --dot-a: #3f6350;
+  --dot-b: #2f4d3e;
+  --card-hover: #3a5748;
+  --card-shadow: rgba(0, 0, 0, 0.35);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0f1713;
+    --surface: #17221c;
+    --ink: #e6efe9;
+    --muted: #9cb2a6;
+    --green-900: #35604a;
+    --green-800: #8fc7a9;
+    --mint: #23392d;
+    --mint-ink: #d9ece1;
+    --mint-hover: #2c4739;
+    --mint-soft: #131f18;
+    --border: #263529;
+    --nav-bg: rgba(15, 23, 19, 0.9);
+    --dot-a: #3f6350;
+    --dot-b: #2f4d3e;
+    --card-hover: #3a5748;
+    --card-shadow: rgba(0, 0, 0, 0.35);
+  }
 }
 
 /* ============ Base ============ */
@@ -48,7 +97,7 @@ a { color: inherit; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(247, 250, 248, 0.92);
+  background: var(--nav-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -86,12 +135,24 @@ a { color: inherit; }
 }
 .nav-link:hover { color: var(--ink); }
 .nav-link.active { color: var(--ink); border-bottom-color: var(--green-900); }
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
 .nav-icon {
   display: inline-flex;
   color: var(--muted);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   transition: color 0.15s ease;
 }
 .nav-icon:hover { color: var(--ink); }
+.theme-toggle .icon-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 /* ============ Hero ============ */
 .hero {
@@ -110,8 +171,8 @@ a { color: inherit; }
   pointer-events: none;
 }
 .hero-art svg { width: 100%; height: 100%; transform: rotate(18deg); }
-.hero-art .pd circle { fill: #a9cdb9; }
-.hero-art .pr circle { fill: #bcd8c6; }
+.hero-art .pd circle { fill: var(--dot-a); }
+.hero-art .pr circle { fill: var(--dot-b); }
 .hero-art .helix { animation: helix-scroll 14s linear infinite; }
 @keyframes helix-scroll {
   from { transform: translateY(0); }
@@ -129,7 +190,7 @@ a { color: inherit; }
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--green-900);
+  color: var(--green-800);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -169,8 +230,8 @@ a { color: inherit; }
 .btn:active { transform: translateY(1px); }
 .btn-dark { background: var(--green-900); color: #fff; }
 .btn-dark:hover { background: var(--green-800); }
-.btn-mint { background: var(--mint); color: var(--green-900); }
-.btn-mint:hover { background: #cfe6d8; }
+.btn-mint { background: var(--mint); color: var(--mint-ink); }
+.btn-mint:hover { background: var(--mint-hover); }
 
 /* ============ Sections ============ */
 .section { padding: 5.5rem 0; }
@@ -211,8 +272,8 @@ a { color: inherit; }
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .card:hover {
-  border-color: #c8dbd0;
-  box-shadow: 0 6px 24px rgba(30, 64, 48, 0.07);
+  border-color: var(--card-hover);
+  box-shadow: 0 6px 24px var(--card-shadow);
 }
 .card-icon {
   width: 44px;
@@ -267,18 +328,32 @@ a { color: inherit; }
   flex-wrap: wrap;
 }
 .exp-head h3 { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.01em; }
-.exp-period { font-size: 0.75rem; color: var(--green-800); white-space: nowrap; }
+.exp-period {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--green-800);
+  white-space: nowrap;
+}
 .exp-org { font-size: 0.88rem; color: var(--muted); margin-top: 0.35rem; }
 .exp-role { font-size: 0.82rem; color: var(--green-800); margin-top: 0.25rem; }
-.project-list {
-  margin-top: 1rem;
-  padding-left: 1.1rem;
+.tag-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 0.5rem;
+  margin-top: 1rem;
 }
-.project-list li { font-size: 0.88rem; color: var(--muted); }
-.project-list strong { color: var(--ink); font-weight: 600; }
+.tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  white-space: nowrap;
+}
 
 /* ============ Publications ============ */
 .pub-list { max-width: 46rem; margin: 2.5rem auto 0; display: flex; flex-direction: column; gap: 1.25rem; }
@@ -292,11 +367,14 @@ a { color: inherit; }
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .pub-item:hover {
-  border-color: #c8dbd0;
-  box-shadow: 0 6px 24px rgba(30, 64, 48, 0.07);
+  border-color: var(--card-hover);
+  box-shadow: 0 6px 24px var(--card-shadow);
 }
 .pub-year {
-  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--green-800);
   padding-top: 0.2rem;
   min-width: 3.2rem;
@@ -327,7 +405,10 @@ a { color: inherit; }
 }
 .edu-item:last-child { border-bottom: none; }
 .edu-period {
-  font-size: 0.78rem;
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--green-800);
   min-width: 8.5rem;
   padding-top: 0.25rem;
@@ -351,8 +432,11 @@ a { color: inherit; }
 }
 .plain-list li:last-child { border-bottom: none; }
 .plain-list .mono {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
   color: var(--green-800);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   margin-right: 0.6rem;
 }
 
