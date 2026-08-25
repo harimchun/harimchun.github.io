@@ -10,20 +10,24 @@
   <meta property="og:title" content="Harim Chun — Bioinformatics · Cancer Genomics" />
   <meta property="og:description" content="Ph.D. student decoding cancer biology through single-cell and spatial transcriptomics." />
   <meta property="og:url" content="https://harimchun.github.io/" />
-  <meta property="og:image" content="https://harimchun.github.io/assets/images/harimchun.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://harimchun.github.io/assets/images/og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Harim Chun — Computational Oncology · Spatial &amp; Single-Cell Genomics" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#f7faf8" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0f1713" media="(prefers-color-scheme: dark)" />
   <script>
+    document.documentElement.classList.add('js');
     // Apply saved/system theme before first paint to avoid a flash.
     document.documentElement.dataset.theme =
       localStorage.getItem('theme') ||
       (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   </script>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧬</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%231e4030%22/><text x=%2232%22 y=%2240%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 font-weight=%22700%22 fill=%22white%22>HC</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Instrument+Serif:ital@1&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <script type="application/ld+json">
   {
@@ -42,11 +46,12 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <!-- Navbar -->
-  <header class="navbar">
+  <header class="navbar" id="site-header">
     <div class="nav-inner">
-      <a href="#home" class="brand">Harim Chun</a>
-      <nav class="nav-menu" aria-label="Primary">
+      <a href="#home" class="brand"><span class="brand-mark" aria-hidden="true">HC</span><span>Harim Chun</span></a>
+      <nav class="nav-menu" id="nav-menu" aria-label="Primary">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#research" class="nav-link">Research</a>
         <a href="#experience" class="nav-link">Experience</a>
@@ -54,68 +59,114 @@
         <a href="assets/cv/CV.pdf" class="nav-link nav-cv">CV</a>
       </nav>
       <div class="nav-icons">
-        <button class="nav-icon theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-          <svg class="icon-moon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
-          <svg class="icon-sun" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <button class="nav-icon theme-toggle" id="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false">
+          <span class="theme-glyph" aria-hidden="true"></span>
         </button>
         <a href="https://github.com/harimchun" class="nav-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
           <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
         </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-controls="nav-menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
 
+  <main id="main-content">
   <!-- Hero -->
   <section id="home" class="hero">
-    <div class="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 400 900" preserveAspectRatio="xMidYMid slice">
-        <g class="helix" id="helix"></g>
-      </svg>
-    </div>
-    <div class="container hero-inner">
-      <h1 class="hero-title">Decoding Cancer Complexity at <em>Spatial &amp; Single-Cell Resolution</em>.</h1>
-      <p class="hero-desc">
-        I am a Ph.D. student in Biomedical Sciences at The Catholic University of Korea,
-        integrating spatial transcriptomics, single-cell multi-omics, and
-        gene-regulatory-network analysis to investigate tumor&ndash;immune interactions
-        and biomarkers of therapeutic response.
-      </p>
-      <div class="hero-actions">
-        <a href="#research" class="btn btn-dark">Explore Research</a>
-        <a href="assets/cv/CV.pdf" class="btn btn-mint">Download CV</a>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1 class="hero-name">Harim Chun</h1>
+        <p class="hero-title">Decoding Cancer Complexity at <em>Spatial &amp; Single-Cell Resolution</em>.</p>
+        <p class="hero-desc">
+          Hello, I&rsquo;m Harim Chun, a Ph.D. student in Biomedical Sciences at
+          The Catholic University of Korea and a member of
+          <a href="https://www.pathfinderlab.org/" target="_blank" rel="noopener noreferrer">PathFinderLab</a>. I use
+          spatial transcriptomics, scRNA-seq, and multi-omics to study tumor&ndash;immune
+          interactions and biomarkers of therapeutic response.
+        </p>
+        <div class="hero-actions">
+          <a href="#research" class="btn btn-dark">Explore research interests <span aria-hidden="true">&darr;</span></a>
+          <a href="assets/cv/CV.pdf" class="btn btn-quiet">Download CV <span aria-hidden="true">↗</span></a>
+        </div>
+        <dl class="hero-facts" aria-label="Profile summary">
+          <div><dt>Current</dt><dd>Ph.D. Student</dd></div>
+          <div><dt>Focus</dt><dd>Tumor–immune systems</dd></div>
+          <div><dt>Methods</dt><dd>Spatial Transcriptomics, scRNA-seq, Multi-omics</dd></div>
+        </dl>
       </div>
+      <figure class="hero-visual">
+        <img src="assets/images/computational-oncology-hero.png" alt="Computational oncology illustration combining DNA, cellular systems, and multi-omics data" />
+      </figure>
     </div>
   </section>
 
-  <!-- Research Focus -->
-  <section id="research" class="section">
+  <!-- Research Interests -->
+  <section id="research" class="section focus-section">
     <div class="container">
-      <h2 class="section-title">Research Focus</h2>
-      <p class="section-sub">
-        Applying scalable computational methods to large-scale genomic datasets.
-        My work emphasizes biological insight, reproducibility, and statistical rigor.
-      </p>
-      <div class="card-grid">
-        <article class="card reveal">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 3c0 4 14 6 14 10M19 3c0 4-14 6-14 10M5 13c0 4 14 6 14 8M19 13c0 4-14 6-14 8M7 5h10M7 19h10M9 9.5h6"/></svg>
+      <div class="section-head compact">
+        <div class="section-heading">
+          <img class="section-heading-icon" src="assets/images/icon-research-interests.png" alt="" aria-hidden="true" />
+          <h2 class="section-title left">Research Interests</h2>
+        </div>
+      </div>
+      <div class="focus-grid">
+        <article class="focus-card reveal">
+          <div class="focus-card-head">
+            <span class="focus-icon" aria-hidden="true">
+              <!-- Map icon from Lucide -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.618v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.382V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0Z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
+            </span>
+            <h3 class="focus-name">Spatial Transcriptomics</h3>
           </div>
-          <h3>Spatial Transcriptomics</h3>
-          <p>Mapping the spatial architecture of tumor&ndash;immune interactions and neoadjuvant immunochemotherapy response in pleural mesothelioma.</p>
+          <p class="focus-summary">Mapping tumor&ndash;immune spatial architecture and treatment response in pleural mesothelioma.</p>
+          <ul class="interest-projects">
+            <li>
+              <span class="project-name">Pleural mesothelioma</span>
+              <span class="project-desc">Spatial analysis of tumor&ndash;immune interactions after neoadjuvant immunochemotherapy · AACR 2026</span>
+            </li>
+          </ul>
         </article>
-        <article class="card reveal">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M6.5 6.5 9.8 9.8M17.5 6.5l-3.3 3.3M6.5 17.5l3.3-3.3M17.5 17.5l-3.3-3.3"/></svg>
+        <article class="focus-card reveal">
+          <div class="focus-card-head">
+            <span class="focus-icon" aria-hidden="true">
+              <!-- Network icon from Lucide -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>
+            </span>
+            <h3 class="focus-name">Single-Cell Multi-Omics</h3>
           </div>
-          <h3>Single-Cell Multi-Omics</h3>
-          <p>Integrating scRNA-seq and scATAC-seq to uncover gene-regulatory networks behind immune-checkpoint response and cellular heterogeneity.</p>
+          <p class="focus-summary">Integrating scRNA-seq and scATAC-seq to study cellular heterogeneity and gene regulation.</p>
+          <ul class="interest-projects">
+            <li>
+              <span class="project-name">Immune-checkpoint response</span>
+              <span class="project-desc">Molecular biomarker and gene-regulatory-network analysis · KOGO 2024 Excellence Poster Award</span>
+            </li>
+            <li>
+              <span class="project-name">Hematopoietic stem-cell niche</span>
+              <span class="project-desc">Single-cell analysis of HSC compartment regulation · Nature Communications 2022</span>
+            </li>
+          </ul>
         </article>
-        <article class="card reveal">
-          <div class="card-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="12" width="4" height="8" rx="1"/><rect x="10" y="7" width="4" height="13" rx="1"/><rect x="17" y="3" width="4" height="17" rx="1"/></svg>
+        <article class="focus-card reveal">
+          <div class="focus-card-head">
+            <span class="focus-icon" aria-hidden="true">
+              <!-- Database icon from Lucide -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
+            </span>
+            <h3 class="focus-name">Cancer Genomics</h3>
           </div>
-          <h3>Cancer Genomics</h3>
-          <p>Discovering biomarkers of cancer progression and treatment response from WES/WGS and bulk RNA-seq patient cohorts.</p>
+          <p class="focus-summary">Identifying molecular biomarkers of cancer progression and clinical outcomes.</p>
+          <ul class="interest-projects">
+            <li>
+              <span class="project-name">Metachronous gastric cancer</span>
+              <span class="project-desc">Predictive biomarker study after endoscopic resection · co-first author, Cancer Medicine 2024</span>
+            </li>
+            <li>
+              <span class="project-name">Liver cancer · PLEKHA8P1</span>
+              <span class="project-desc">Functional and prognostic study · co-first author, IJMS 2021</span>
+            </li>
+          </ul>
         </article>
       </div>
     </div>
@@ -124,12 +175,17 @@
   <!-- Research Experience -->
   <section id="experience" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">Research Experience</h2>
+      <div class="section-head compact">
+        <div class="section-heading">
+          <img class="section-heading-icon" src="assets/images/icon-research-experience.png" alt="" aria-hidden="true" />
+          <h2 class="section-title left">Research Experience</h2>
+        </div>
+      </div>
       <div class="exp-list">
         <article class="exp-item reveal">
           <div class="exp-head">
             <h3><a href="https://www.pathfinderlab.org/" target="_blank" rel="noopener noreferrer">PathFinderLab</a></h3>
-            <span class="exp-period mono">Sep 2024 — Present</span>
+            <span class="exp-period">Sep 2024 — Present</span>
           </div>
           <p class="exp-org">The Catholic University of Korea &amp; Korea University Anam Hospital · Advisor: Sung Hak Lee, M.D., Ph.D.</p>
           <p class="exp-role">Graduate Student (2025—) · Research Associate (2024—2025)</p>
@@ -144,7 +200,7 @@
         <article class="exp-item reveal">
           <div class="exp-head">
             <h3><a href="https://choi.korea.ac.kr/" target="_blank" rel="noopener noreferrer">Choi Lab</a> — Human Genetics &amp; Genomics</h3>
-            <span class="exp-period mono">Jul 2020 — Aug 2024</span>
+            <span class="exp-period">Jul 2020 — Aug 2024</span>
           </div>
           <p class="exp-org">Korea University · Advisor: Jungmin Choi, Ph.D.</p>
           <p class="exp-role">Graduate Student (2021—2024) · Undergraduate Research Intern (2020—2021)</p>
@@ -159,27 +215,18 @@
         <article class="exp-item reveal">
           <div class="exp-head">
             <h3>Post-Genome Informatics Lab</h3>
-            <span class="exp-period mono">Aug 2019 — Jul 2020</span>
+            <span class="exp-period">Aug 2019 — Jul 2020</span>
           </div>
           <p class="exp-org">Soongsil University · Advisor: Sangsoo Kim, Ph.D.</p>
           <p class="exp-role">Research Intern</p>
-          <div class="tag-list">
-            <span class="tag">eQTL analysis</span>
-            <span class="tag">Virtual screening</span>
-            <span class="tag">Pan-cancer transcriptomics</span>
-          </div>
         </article>
         <article class="exp-item reveal">
           <div class="exp-head">
             <h3>Insilicogen, Inc.</h3>
-            <span class="exp-period mono">Jul — Aug 2019</span>
+            <span class="exp-period">Jul — Aug 2019</span>
           </div>
           <p class="exp-org">Yongin, Korea</p>
           <p class="exp-role">Bioinformatics Intern</p>
-          <div class="tag-list">
-            <span class="tag">Neo4j knowledge graph</span>
-            <span class="tag">Personalized nutrition genomics</span>
-          </div>
         </article>
       </div>
     </div>
@@ -188,38 +235,43 @@
   <!-- Publications -->
   <section id="publications" class="section">
     <div class="container">
-      <h2 class="section-title">Publications</h2>
+      <div class="section-head compact">
+        <div class="section-heading">
+          <img class="section-heading-icon" src="assets/images/icon-publications.png" alt="" aria-hidden="true" />
+          <h2 class="section-title left">Publications</h2>
+        </div>
+      </div>
       <div class="pub-list">
         <article class="pub-item reveal">
-          <span class="pub-year mono">2025</span>
+          <span class="pub-year">2025</span>
           <div class="pub-body">
             <h3><a href="https://doi.org/10.1016/j.mocell.2025.100283" target="_blank" rel="noopener noreferrer">GOREA: Unbiased interpretation of functional enrichment</a></h3>
             <p class="pub-authors">Lee H, Park Y, Jeon I, Kang D, <strong>Chun H</strong>, Choi J — <em>Molecules and Cells</em> 48(11):100283</p>
-            <p class="pub-note mono">doi:10.1016/j.mocell.2025.100283</p>
+            <div class="pub-actions"><span class="pub-note">doi:10.1016/j.mocell.2025.100283</span><button class="copy-doi" type="button" data-doi="10.1016/j.mocell.2025.100283">Copy DOI</button></div>
           </div>
         </article>
         <article class="pub-item reveal">
-          <span class="pub-year mono">2024</span>
+          <span class="pub-year">2024</span>
           <div class="pub-body">
             <h3><a href="https://doi.org/10.1002/cam4.70104" target="_blank" rel="noopener noreferrer">Predictive biomarkers for metachronous gastric cancer development after endoscopic resection of early gastric cancer</a></h3>
             <p class="pub-authors">Kim B*, <strong>Chun H*</strong>, Lee J, Park M, Kwak Y, Kim JM, Kim SG, Ryu JK, Choi J<sup>†</sup>, Cho SJ<sup>†</sup> — <em>Cancer Medicine</em></p>
-            <p class="pub-note mono">* co-first author · doi:10.1002/cam4.70104</p>
+            <div class="pub-actions"><span class="pub-note">* co-first author · doi:10.1002/cam4.70104</span><button class="copy-doi" type="button" data-doi="10.1002/cam4.70104">Copy DOI</button></div>
           </div>
         </article>
         <article class="pub-item reveal">
-          <span class="pub-year mono">2022</span>
+          <span class="pub-year">2022</span>
           <div class="pub-body">
             <h3><a href="https://doi.org/10.1038/s41467-022-32228-w" target="_blank" rel="noopener noreferrer">Competition between hematopoietic stem and progenitor cells controls hematopoietic stem cell compartment size</a></h3>
             <p class="pub-authors">Miao R, <strong>Chun H</strong>, Gomes AC, Choi J, Pereira J — <em>Nature Communications</em> 13:4611</p>
-            <p class="pub-note mono">doi:10.1038/s41467-022-32228-w</p>
+            <div class="pub-actions"><span class="pub-note">doi:10.1038/s41467-022-32228-w</span><button class="copy-doi" type="button" data-doi="10.1038/s41467-022-32228-w">Copy DOI</button></div>
           </div>
         </article>
         <article class="pub-item reveal">
-          <span class="pub-year mono">2021</span>
+          <span class="pub-year">2021</span>
           <div class="pub-body">
             <h3><a href="https://doi.org/10.3390/ijms22147614" target="_blank" rel="noopener noreferrer">PLEKHA8P1 promotes tumor progression and indicates poor prognosis of liver cancer</a></h3>
             <p class="pub-authors">Lee J*, Hwang JH*, <strong>Chun H*</strong>, Woo W, Oh S, Choi J<sup>†</sup>, Kim LK<sup>†</sup> — <em>Int. J. Mol. Sci.</em> 22(14):7614</p>
-            <p class="pub-note mono">* co-first author · doi:10.3390/ijms22147614</p>
+            <div class="pub-actions"><span class="pub-note">* co-first author · doi:10.3390/ijms22147614</span><button class="copy-doi" type="button" data-doi="10.3390/ijms22147614">Copy DOI</button></div>
           </div>
         </article>
       </div>
@@ -230,26 +282,49 @@
   <section id="presentations" class="section section-alt">
     <div class="container">
       <h2 class="section-title">Conference Presentations</h2>
-      <ul class="edu-list">
-        <li class="edu-item reveal">
-          <span class="edu-period mono">AACR 2026</span>
-          <div>
-            <h3>Spatial architecture of neoadjuvant immunochemotherapy response in pleural mesothelioma</h3>
+      <ul class="presentation-grid">
+        <li class="presentation-card reveal">
+          <a class="poster-preview" href="assets/presentation/2026_AACR.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the AACR 2026 poster PDF">
+            <img src="assets/presentation/previews/2026-aacr.webp" alt="Preview of the AACR 2026 pleural mesothelioma poster" loading="lazy" decoding="async" />
+          </a>
+          <div class="presentation-body">
+            <span class="presentation-period">AACR 2026</span>
+            <h3><a href="assets/presentation/2026_AACR.pdf" target="_blank" rel="noopener noreferrer">Spatial architecture of neoadjuvant immunochemotherapy response in pleural mesothelioma</a></h3>
             <p>Poster presentation · San Diego, USA · Apr 2026</p>
+            <a class="poster-link" href="assets/presentation/2026_AACR.pdf" target="_blank" rel="noopener noreferrer">View poster PDF <span aria-hidden="true">↗</span></a>
           </div>
         </li>
-        <li class="edu-item reveal">
-          <span class="edu-period mono">AACR 2025</span>
-          <div>
-            <h3>Rethinking molecular analysis of gastric cancer: insight into morphologic phenotype</h3>
+        <li class="presentation-card reveal">
+          <a class="poster-preview" href="assets/presentation/2025_AACR.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the AACR 2025 poster PDF">
+            <img src="assets/presentation/previews/2025-aacr.webp" alt="Preview of the AACR 2025 gastric cancer poster" loading="lazy" decoding="async" />
+          </a>
+          <div class="presentation-body">
+            <span class="presentation-period">AACR 2025</span>
+            <h3><a href="assets/presentation/2025_AACR.pdf" target="_blank" rel="noopener noreferrer">Rethinking molecular analysis of gastric cancer: insight into morphologic phenotype</a></h3>
             <p>Poster presentation · Chicago, USA · Apr 2025</p>
+            <a class="poster-link" href="assets/presentation/2025_AACR.pdf" target="_blank" rel="noopener noreferrer">View poster PDF <span aria-hidden="true">↗</span></a>
           </div>
         </li>
-        <li class="edu-item reveal">
-          <span class="edu-period mono">KOGO 2024</span>
-          <div>
-            <h3>Identification of molecular biomarkers for response to immune checkpoint inhibitors</h3>
+        <li class="presentation-card reveal">
+          <a class="poster-preview" href="assets/presentation/2024_WinterKOGO.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the KOGO 2024 poster PDF">
+            <img src="assets/presentation/previews/2024-winter-kogo.webp" alt="Preview of the KOGO 2024 immune checkpoint inhibitor poster" loading="lazy" decoding="async" />
+          </a>
+          <div class="presentation-body">
+            <span class="presentation-period">KOGO 2024</span>
+            <h3><a href="assets/presentation/2024_WinterKOGO.pdf" target="_blank" rel="noopener noreferrer">Identification of molecular biomarkers for response to immune checkpoint inhibitors</a></h3>
             <p>Poster presentation · Hongcheon, Korea · Feb 2024 · Excellence Poster Award</p>
+            <a class="poster-link" href="assets/presentation/2024_WinterKOGO.pdf" target="_blank" rel="noopener noreferrer">View poster PDF <span aria-hidden="true">↗</span></a>
+          </div>
+        </li>
+        <li class="presentation-card reveal">
+          <a class="poster-preview" href="assets/presentation/2023_WinterKOGO.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the KOGO 2023 poster PDF">
+            <img src="assets/presentation/previews/2023-winter-kogo.webp" alt="Preview of the KOGO 2023 Ctk1 and replicative lifespan poster" loading="lazy" decoding="async" />
+          </a>
+          <div class="presentation-body">
+            <span class="presentation-period">KOGO 2023</span>
+            <h3><a href="assets/presentation/2023_WinterKOGO.pdf" target="_blank" rel="noopener noreferrer">Ctk1 regulates replicative lifespan by controlling the expression of ribosomal proteins</a></h3>
+            <p>Poster presentation · KOGO Winter Symposium · 2023</p>
+            <a class="poster-link" href="assets/presentation/2023_WinterKOGO.pdf" target="_blank" rel="noopener noreferrer">View poster PDF <span aria-hidden="true">↗</span></a>
           </div>
         </li>
       </ul>
@@ -262,28 +337,28 @@
       <h2 class="section-title">Education</h2>
       <ul class="edu-list">
         <li class="edu-item reveal">
-          <span class="edu-period mono">2025 — Present</span>
+          <span class="edu-period">2025 — Present</span>
           <div>
             <h3>Ph.D. in Biomedical Sciences</h3>
             <p>The Catholic University of Korea College of Medicine, Seoul</p>
           </div>
         </li>
         <li class="edu-item reveal">
-          <span class="edu-period mono">2021 — 2024</span>
+          <span class="edu-period">2021 — 2024</span>
           <div>
             <h3>M.S. in Biomedical Sciences</h3>
             <p>Korea University College of Medicine, Seoul · Thesis: molecular biomarkers of response to immune checkpoint inhibitors</p>
           </div>
         </li>
         <li class="edu-item reveal">
-          <span class="edu-period mono">2015 — 2021</span>
+          <span class="edu-period">2015 — 2021</span>
           <div>
             <h3>B.S. in Systems Biomedical Science</h3>
             <p>Soongsil University, Seoul · Bioengineering &amp; Bioinformatics, Interdisciplinary Major in Big Data Computing</p>
           </div>
         </li>
         <li class="edu-item reveal">
-          <span class="edu-period mono">2019</span>
+          <span class="edu-period">2019</span>
           <div>
             <h3>Exchange Student, Biology</h3>
             <p>University of Mississippi, USA</p>
@@ -299,30 +374,33 @@
       <div>
         <h2 class="section-title left">Awards &amp; Honors</h2>
         <ul class="plain-list">
-          <li class="reveal"><span class="mono">2026—2027</span> Asan Foundation Scholarship for Biomedical Science — Asan Foundation</li>
-          <li class="reveal"><span class="mono">2024</span> Excellence Poster Award — The 20th KOGO Winter Symposium</li>
-          <li class="reveal"><span class="mono">2021</span> Brain Korea 21 (BK21) Scholarship — Korea Research Foundation</li>
-          <li class="reveal"><span class="mono">2020</span> CoRE Tutoring Best Tutor Award — Soongsil University</li>
-          <li class="reveal"><span class="mono">2016 · 2020</span> Semester Honor Scholarship — Soongsil University</li>
+          <li class="reveal"><span class="list-year">2026—2027</span> <a href="https://www.asanfoundation.or.kr/af/bsns.supervision.scholarship0.sp" target="_blank" rel="noopener noreferrer">Asan Foundation Scholarship for Biomedical Science</a> — Asan Foundation</li>
+          <li class="reveal"><span class="list-year">2024</span> Excellence Poster Award — The 20th KOGO Winter Symposium</li>
+          <li class="reveal"><span class="list-year">2021</span> Brain Korea 21 (BK21) Scholarship — Korea Research Foundation</li>
+          <li class="reveal"><span class="list-year">2020</span> CoRE Tutoring Best Tutor Award — Soongsil University</li>
+          <li class="reveal"><span class="list-year">2016 · 2020</span> Semester Honor Scholarship — Soongsil University</li>
         </ul>
       </div>
       <div>
         <h2 class="section-title left">Teaching</h2>
         <ul class="plain-list">
-          <li class="reveal"><span class="mono">2024</span> Single-Cell Multi-Omics — KSBI-BIML, Korea Society for Bioinformatics</li>
-          <li class="reveal"><span class="mono">2023</span> Spatial Transcriptomics with R — KSBI-BIML &amp; the 19th KOGO Winter Workshop</li>
-          <li class="reveal"><span class="mono">2022</span> NGS Data Analysis Pipeline, GATK Best-Practice — Korea University, INNOPOLIS</li>
-          <li class="reveal"><span class="mono">2019</span> Hadoop File System and PySpark — CoRE Tutoring, Soongsil University</li>
+          <li class="reveal"><span class="list-year">2024</span> Single-Cell Multi-Omics — KSBI-BIML, Korea Society for Bioinformatics</li>
+          <li class="reveal"><span class="list-year">2023</span> Spatial Transcriptomics with R — KSBI-BIML &amp; the 19th KOGO Winter Workshop</li>
+          <li class="reveal"><span class="list-year">2022</span> NGS Data Analysis Pipeline, GATK Best-Practice — Korea University, INNOPOLIS</li>
+          <li class="reveal"><span class="list-year">2019</span> Hadoop File System and PySpark — CoRE Tutoring, Soongsil University</li>
         </ul>
       </div>
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="footer" id="contact">
     <div class="container footer-inner">
       <div>
-        <p class="brand">Harim Chun</p>
+        <p class="brand"><span class="brand-mark" aria-hidden="true">HC</span><span>Harim Chun</span></p>
+        <p class="footer-note">Computational oncology · spatial and single-cell genomics</p>
       </div>
       <nav class="footer-links" aria-label="Contact">
         <a href="mailto:harimchun@catholic.ac.kr">Email</a>
