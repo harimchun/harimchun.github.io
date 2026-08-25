@@ -357,31 +357,24 @@ button, summary { font: inherit; }
 
 /* ============ Research interests ============ */
 .focus-grid {
-  position: relative;
-  overflow: hidden;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-block: 1px solid var(--border-strong);
-  background: linear-gradient(125deg, color-mix(in srgb, var(--mint-soft) 72%, var(--surface)), var(--surface) 72%);
+  gap: 1rem;
 }
-.focus-grid::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--mint) 65%, transparent), transparent 34%);
-  pointer-events: none;
+.focus-card {
+  min-width: 0;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 12px 32px color-mix(in srgb, var(--green-900) 5%, transparent);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
-.focus-card { position: relative; z-index: 1; min-width: 0; padding: 2.35rem 2.1rem 2.25rem; }
-.focus-card:first-child { padding-left: 0; }
-.focus-card:last-child { padding-right: 0; }
-.focus-card + .focus-card { border-left: 1px solid var(--border); }
-.focus-card::before { content: ''; display: block; width: 52px; height: 3px; margin-bottom: 1.35rem; background: var(--green-800); }
-.focus-card:nth-child(2)::before { background: var(--signal); }
-.focus-card:nth-child(3)::before { background: var(--stromal); }
+.focus-card:hover { border-color: var(--border-strong); box-shadow: 0 16px 38px color-mix(in srgb, var(--green-900) 8%, transparent); }
 .focus-card-head { display: flex; align-items: center; gap: 0.75rem; }
-.focus-icon { width: 28px; height: 28px; display: grid; flex: 0 0 28px; place-items: center; color: var(--green-800); }
-.focus-card:nth-child(2) .focus-icon { color: var(--signal); }
-.focus-card:nth-child(3) .focus-icon { color: color-mix(in srgb, var(--stromal) 78%, var(--ink)); }
+.focus-icon { width: 42px; height: 42px; display: grid; flex: 0 0 42px; place-items: center; border: 1px solid color-mix(in srgb, var(--green-800) 36%, var(--border)); border-radius: 50%; color: var(--green-800); background: color-mix(in srgb, var(--mint-soft) 72%, transparent); }
+.focus-card:nth-child(2) .focus-icon { border-color: color-mix(in srgb, var(--signal) 36%, var(--border)); color: var(--signal); background: color-mix(in srgb, var(--signal) 8%, var(--surface)); }
+.focus-card:nth-child(3) .focus-icon { border-color: color-mix(in srgb, var(--stromal) 42%, var(--border)); color: color-mix(in srgb, var(--stromal) 78%, var(--ink)); background: color-mix(in srgb, var(--stromal) 9%, var(--surface)); }
 .focus-icon svg { width: 23px; height: 23px; }
 .focus-name { margin: 0; font-size: 1.08rem; font-weight: 750; letter-spacing: -0.025em; }
 .focus-summary { min-height: 4.25em; margin-top: 1.15rem; color: var(--muted); font-size: 0.87rem; line-height: 1.65; }
@@ -502,8 +495,7 @@ button, summary { font: inherit; }
   .hero-facts { grid-template-columns: 1fr; gap: 0.7rem; }
   .hero-facts div { display: grid; grid-template-columns: 70px 1fr; gap: 0.75rem; }
   .focus-grid { grid-template-columns: 1fr; }
-  .focus-card, .focus-card:first-child, .focus-card:last-child { padding: 1.75rem 0.15rem; }
-  .focus-card + .focus-card { border-top: 1px solid var(--border); border-left: 0; }
+  .focus-card { padding: 1.5rem; }
   .focus-summary { min-height: 0; }
   .presentation-grid { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; gap: 3.5rem; }
