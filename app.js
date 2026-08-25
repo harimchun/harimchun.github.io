@@ -1,67 +1,91 @@
-// Minimal interactions: theme toggle + particle helix + scroll reveal + active nav.
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
-  initHelix();
+  initMobileNav();
+  initDoiCopy();
   initReveal();
   initNavActive();
 });
 
-// The <head> inline script already applied the saved/system theme before paint;
-// this wires the toggle button and persists explicit choices.
 function initTheme() {
   const toggle = document.getElementById('theme-toggle');
   if (!toggle) return;
+
+  const sync = () => {
+    const isDark = document.documentElement.dataset.theme === 'dark';
+    toggle.setAttribute('aria-pressed', String(isDark));
+    toggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+  };
+
   toggle.addEventListener('click', () => {
     const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
     document.documentElement.dataset.theme = next;
     localStorage.setItem('theme', next);
+    sync();
+  });
+
+  sync();
+}
+
+function initMobileNav() {
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (!toggle || !menu) return;
+
+  const setOpen = (open) => {
+    toggle.classList.toggle('open', open);
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  };
+
+  toggle.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('click', (event) => {
+    if (!menu.contains(event.target) && !toggle.contains(event.target)) setOpen(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  matchMedia('(min-width: 781px)').addEventListener('change', (event) => {
+    if (event.matches) setOpen(false);
   });
 }
 
-// Decorative DNA helix: two particle strands with depth-modulated dot size,
-// drawn over one animation period (300px) repeated to y=1200 for a seamless loop.
-function initHelix() {
-  const g = document.getElementById('helix');
-  if (!g) return;
-  const NS = 'http://www.w3.org/2000/svg';
-  const CX = 200, AMP = 140, PERIOD = 300, YMAX = 1200;
-  const circle = (parent, x, y, r, opacity) => {
-    const c = document.createElementNS(NS, 'circle');
-    c.setAttribute('cx', x.toFixed(2));
-    c.setAttribute('cy', y);
-    c.setAttribute('r', r.toFixed(2));
-    c.setAttribute('opacity', opacity.toFixed(2));
-    parent.appendChild(c);
-  };
-  const strands = document.createElementNS(NS, 'g');
-  strands.setAttribute('class', 'pd');
-  for (let y = 0; y <= YMAX; y += 10) {
-    const th = (2 * Math.PI * y) / PERIOD;
-    const s = Math.sin(th), z = Math.cos(th);
-    [[CX + AMP * s, z], [CX - AMP * s, -z]].forEach(([x, depth]) => {
-      const t = (depth + 1) / 2;
-      circle(strands, x, y, 1.8 + 2.6 * t, 0.28 + 0.55 * t);
+function initDoiCopy() {
+  document.querySelectorAll('.copy-doi').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const doi = button.dataset.doi;
+      const original = button.textContent;
+      try {
+        await navigator.clipboard.writeText(doi);
+        button.textContent = 'Copied';
+      } catch {
+        const input = document.createElement('textarea');
+        input.value = doi;
+        input.setAttribute('readonly', '');
+        input.style.position = 'fixed';
+        input.style.opacity = '0';
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand('copy');
+        input.remove();
+        button.textContent = 'Copied';
+      }
+      window.setTimeout(() => { button.textContent = original; }, 1600);
     });
-  }
-  const rungs = document.createElementNS(NS, 'g');
-  rungs.setAttribute('class', 'pr');
-  for (let y = 25; y < YMAX; y += 50) {
-    if (y % 150 === 0) continue;
-    const th = (2 * Math.PI * y) / PERIOD;
-    const a = CX + AMP * Math.sin(th), b = CX - AMP * Math.sin(th);
-    for (let i = 1; i <= 5; i++) {
-      circle(rungs, a + ((b - a) * i) / 6, y, 1.7, 0.32);
-    }
-  }
-  g.appendChild(strands);
-  g.appendChild(rungs);
+  });
 }
 
 function initReveal() {
+  const elements = [...document.querySelectorAll('.reveal')];
   if (!('IntersectionObserver' in window)) {
-    document.body.classList.add('no-observer');
+    elements.forEach((element) => element.classList.add('in'));
     return;
   }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -69,9 +93,9 @@ function initReveal() {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
 
-  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  elements.forEach((element) => observer.observe(element));
 }
 
 function initNavActive() {
@@ -81,16 +105,29 @@ function initNavActive() {
     .filter(Boolean);
   if (!sections.length) return;
 
+  let scheduled = false;
   const setActive = () => {
-    const y = window.scrollY + 90;
+    const headerHeight = document.getElementById('site-header')?.offsetHeight || 68;
+    const y = window.scrollY + headerHeight + 32;
     let current = sections[0];
-    sections.forEach((sec) => {
-      if (sec.offsetTop <= y) current = sec;
+    sections.forEach((section) => {
+      if (section.offsetTop <= y) current = section;
     });
     links.forEach((link) => {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + current.id);
+      const active = link.getAttribute('href') === `#${current.id}`;
+      link.classList.toggle('active', active);
+      if (active) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
     });
+    scheduled = false;
   };
-  window.addEventListener('scroll', setActive, { passive: true });
+
+  window.addEventListener('scroll', () => {
+    if (!scheduled) {
+      requestAnimationFrame(setActive);
+      scheduled = true;
+    }
+  }, { passive: true });
+  window.addEventListener('resize', setActive, { passive: true });
   setActive();
 }
