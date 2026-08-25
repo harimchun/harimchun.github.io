@@ -372,10 +372,10 @@ button, summary { font: inherit; }
 }
 .focus-card:hover { border-color: var(--border-strong); box-shadow: 0 16px 38px color-mix(in srgb, var(--green-900) 8%, transparent); }
 .focus-card-head { display: flex; align-items: center; gap: 0.75rem; }
-.focus-icon { width: 42px; height: 42px; display: grid; flex: 0 0 42px; place-items: center; border: 1px solid color-mix(in srgb, var(--green-800) 36%, var(--border)); border-radius: 50%; color: var(--green-800); background: color-mix(in srgb, var(--mint-soft) 72%, transparent); }
-.focus-card:nth-child(2) .focus-icon { border-color: color-mix(in srgb, var(--signal) 36%, var(--border)); color: var(--signal); background: color-mix(in srgb, var(--signal) 8%, var(--surface)); }
-.focus-card:nth-child(3) .focus-icon { border-color: color-mix(in srgb, var(--stromal) 42%, var(--border)); color: color-mix(in srgb, var(--stromal) 78%, var(--ink)); background: color-mix(in srgb, var(--stromal) 9%, var(--surface)); }
-.focus-icon svg { width: 23px; height: 23px; }
+.focus-icon { width: 42px; height: 42px; display: grid; flex: 0 0 42px; place-items: center; border: 1px solid color-mix(in srgb, var(--green-800) 36%, var(--border)); border-radius: 50%; background: color-mix(in srgb, var(--mint-soft) 72%, transparent); }
+.focus-card:nth-child(2) .focus-icon { border-color: color-mix(in srgb, var(--signal) 36%, var(--border)); background: color-mix(in srgb, var(--signal) 8%, var(--surface)); }
+.focus-card:nth-child(3) .focus-icon { border-color: color-mix(in srgb, var(--stromal) 42%, var(--border)); background: color-mix(in srgb, var(--stromal) 9%, var(--surface)); }
+.focus-icon img { width: 32px; height: 32px; display: block; object-fit: contain; }
 .focus-name { margin: 0; font-size: 1.08rem; font-weight: 750; letter-spacing: -0.025em; }
 .focus-summary { min-height: 4.25em; margin-top: 1.15rem; color: var(--muted); font-size: 0.87rem; line-height: 1.65; }
 .interest-projects { margin-top: 1.25rem; padding-top: 1.15rem; border-top: 1px solid var(--border); list-style: none; display: grid; gap: 1rem; }
