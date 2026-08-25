@@ -245,15 +245,34 @@ button, summary { font: inherit; }
 
 .hero-copy { position: relative; z-index: 2; width: min(76%, 880px); color: #f4faf6; }
 
+.hero-identity {
+  margin-bottom: 1.55rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-portrait {
+  width: 88px;
+  height: 108px;
+  flex: 0 0 auto;
+  border: 2px solid rgba(255, 255, 255, 0.54);
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center 20%;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
 .hero-name {
-  margin-bottom: 1.2rem;
-  padding-left: 1rem;
-  border-left: 3px solid #ef8a6d;
+  margin: 0 0 0.35rem;
   font-size: clamp(1.35rem, 2vw, 1.85rem);
   font-weight: 750;
   line-height: 1.15;
   letter-spacing: -0.025em;
 }
+
+.hero-role { margin: 0; color: rgba(239, 247, 242, 0.72); font-size: 0.9rem; font-weight: 550; }
 
 .hero-title {
   max-width: 880px;
@@ -507,6 +526,9 @@ button, summary { font: inherit; }
   .brand > span:last-child { display: none; }
   .nav-icons { gap: 0.25rem; }
   .section-heading-icon { width: 40px; height: 40px; flex-basis: 40px; }
+  .hero-identity { gap: 0.8rem; }
+  .hero-portrait { width: 72px; height: 88px; border-radius: 13px; }
+  .hero-role { max-width: 13rem; font-size: 0.8rem; }
   .hero-actions { align-items: stretch; flex-direction: column; }
   .btn { justify-content: space-between; }
   .exp-item { margin-left: 1.7rem; padding-left: 0.9rem; }
