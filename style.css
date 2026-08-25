@@ -356,19 +356,39 @@ button, summary { font: inherit; }
 .section-title.left { margin-bottom: 0; text-align: left; }
 
 /* ============ Research interests ============ */
-.focus-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-block: 1px solid var(--border-strong); }
-.focus-card { min-width: 0; padding: 2rem; }
+.focus-grid {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-block: 1px solid var(--border-strong);
+  background: linear-gradient(125deg, color-mix(in srgb, var(--mint-soft) 72%, var(--surface)), var(--surface) 72%);
+}
+.focus-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--mint) 65%, transparent), transparent 34%);
+  pointer-events: none;
+}
+.focus-card { position: relative; z-index: 1; min-width: 0; padding: 2.35rem 2.1rem 2.25rem; }
 .focus-card:first-child { padding-left: 0; }
 .focus-card:last-child { padding-right: 0; }
 .focus-card + .focus-card { border-left: 1px solid var(--border); }
+.focus-card::before { content: ''; display: block; width: 52px; height: 3px; margin-bottom: 1.35rem; background: var(--green-800); }
+.focus-card:nth-child(2)::before { background: var(--signal); }
+.focus-card:nth-child(3)::before { background: var(--stromal); }
 .focus-card-head { display: flex; align-items: center; gap: 0.75rem; }
-.focus-icon { width: 26px; height: 26px; display: grid; flex: 0 0 26px; place-items: center; color: var(--green-800); }
-.focus-icon svg { width: 22px; height: 22px; }
-.focus-name { margin: 0; font-size: 1.04rem; font-weight: 750; letter-spacing: -0.025em; }
-.focus-summary { min-height: 4.1em; margin-top: 1.15rem; color: var(--muted); font-size: 0.83rem; }
+.focus-icon { width: 28px; height: 28px; display: grid; flex: 0 0 28px; place-items: center; color: var(--green-800); }
+.focus-card:nth-child(2) .focus-icon { color: var(--signal); }
+.focus-card:nth-child(3) .focus-icon { color: color-mix(in srgb, var(--stromal) 78%, var(--ink)); }
+.focus-icon svg { width: 23px; height: 23px; }
+.focus-name { margin: 0; font-size: 1.08rem; font-weight: 750; letter-spacing: -0.025em; }
+.focus-summary { min-height: 4.25em; margin-top: 1.15rem; color: var(--muted); font-size: 0.87rem; line-height: 1.65; }
 .interest-projects { margin-top: 1.25rem; padding-top: 1.15rem; border-top: 1px solid var(--border); list-style: none; display: grid; gap: 1rem; }
-.interest-projects li { display: grid; gap: 0.24rem; }
-.project-name { color: var(--ink); font-size: 0.78rem; font-weight: 700; }
+.interest-projects li { position: relative; display: grid; gap: 0.24rem; padding-left: 0.9rem; }
+.interest-projects li::before { content: ''; position: absolute; top: 0.48rem; left: 0; width: 4px; height: 4px; border-radius: 50%; background: var(--signal); }
+.project-name { color: var(--ink); font-size: 0.8rem; font-weight: 700; }
 .project-desc { color: var(--muted); font-size: 0.7rem; line-height: 1.55; }
 
 /* ============ Experience ============ */
@@ -482,7 +502,7 @@ button, summary { font: inherit; }
   .hero-facts { grid-template-columns: 1fr; gap: 0.7rem; }
   .hero-facts div { display: grid; grid-template-columns: 70px 1fr; gap: 0.75rem; }
   .focus-grid { grid-template-columns: 1fr; }
-  .focus-card, .focus-card:first-child, .focus-card:last-child { padding: 1.5rem 0; }
+  .focus-card, .focus-card:first-child, .focus-card:last-child { padding: 1.75rem 0.15rem; }
   .focus-card + .focus-card { border-top: 1px solid var(--border); border-left: 0; }
   .focus-summary { min-height: 0; }
   .presentation-grid { grid-template-columns: 1fr; }
