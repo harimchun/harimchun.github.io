@@ -356,17 +356,19 @@ button, summary { font: inherit; }
 .section-title.left { margin-bottom: 0; text-align: left; }
 
 /* ============ Research interests ============ */
-.focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.focus-card { padding: 1.45rem; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); transition: border-color 0.2s ease, transform 0.2s ease; }
-.focus-card:hover { border-color: var(--border-strong); transform: translateY(-3px); }
-.focus-card-head { display: flex; align-items: center; gap: 0.9rem; }
-.focus-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 12px; background: var(--mint); color: var(--green-800); }
-.focus-icon svg { width: 23px; height: 23px; }
-.focus-name { margin: 0; font-size: 1rem; font-weight: 750; letter-spacing: -0.02em; }
-.focus-summary { min-height: 4.1em; margin-top: 1.25rem; color: var(--muted); font-size: 0.83rem; }
-.interest-projects { margin-top: 1.2rem; padding-top: 1.1rem; border-top: 1px solid var(--border); list-style: none; display: grid; gap: 1rem; }
+.focus-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-block: 1px solid var(--border-strong); }
+.focus-card { min-width: 0; padding: 2rem; }
+.focus-card:first-child { padding-left: 0; }
+.focus-card:last-child { padding-right: 0; }
+.focus-card + .focus-card { border-left: 1px solid var(--border); }
+.focus-card-head { display: flex; align-items: center; gap: 0.75rem; }
+.focus-icon { width: 26px; height: 26px; display: grid; flex: 0 0 26px; place-items: center; color: var(--green-800); }
+.focus-icon svg { width: 22px; height: 22px; }
+.focus-name { margin: 0; font-size: 1.04rem; font-weight: 750; letter-spacing: -0.025em; }
+.focus-summary { min-height: 4.1em; margin-top: 1.15rem; color: var(--muted); font-size: 0.83rem; }
+.interest-projects { margin-top: 1.25rem; padding-top: 1.15rem; border-top: 1px solid var(--border); list-style: none; display: grid; gap: 1rem; }
 .interest-projects li { display: grid; gap: 0.24rem; }
-.project-name { color: var(--ink); font-size: 0.76rem; font-weight: 700; }
+.project-name { color: var(--ink); font-size: 0.78rem; font-weight: 700; }
 .project-desc { color: var(--muted); font-size: 0.7rem; line-height: 1.55; }
 
 /* ============ Experience ============ */
@@ -480,6 +482,8 @@ button, summary { font: inherit; }
   .hero-facts { grid-template-columns: 1fr; gap: 0.7rem; }
   .hero-facts div { display: grid; grid-template-columns: 70px 1fr; gap: 0.75rem; }
   .focus-grid { grid-template-columns: 1fr; }
+  .focus-card, .focus-card:first-child, .focus-card:last-child { padding: 1.5rem 0; }
+  .focus-card + .focus-card { border-top: 1px solid var(--border); border-left: 0; }
   .focus-summary { min-height: 0; }
   .presentation-grid { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; gap: 3.5rem; }
